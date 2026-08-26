@@ -1,0 +1,12 @@
+#ifndef _VERSION_H_
+#define _VERSION_H_
+
+/*******************************************
+ * This file is auto populated do not edit *
+ *******************************************/
+
+#define CABLE_TESTER_GIT_HASH "@GIT_COMMIT_HASH@"
+#define CABLE_TESTER_GIT_DATE "@GIT_COMMIT_DATE@"
+#define CABLE_TESTER_BUILD_DATE "@BUILD_DATE@"
+
+#endif
