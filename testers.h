@@ -372,12 +372,12 @@ const struct Tester testers [N_TESTERS] = {
 		"MicroB2 + Type-A3",
 		MAKE_PINS(
 			// Micro USB2
-			//{14, "uB_VBUS"},
-			//{11, "uB_D+"},
-			//{13, "uB_D-"},
-			//{18, "uB_ID"},
-			//{17, "uB_GND"},
-			// {15, "uB_SHIELD"},
+			{14, "uB_VBUS"},
+			{11, "uB_D+"},
+			{13, "uB_D-"},
+			{18, "uB_ID"},
+			{17, "uB_GND"},
+			{15, "uB_SHIELD"},
 			// USB3 Type-A"
 			{21, "A_VBUS"},
 			{ 5, "A_D-"},
