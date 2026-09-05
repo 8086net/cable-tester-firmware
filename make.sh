@@ -22,7 +22,7 @@ main () {
 
         cmake -B $BUILD_DIR_PICO -DPICO_BOARD=pico
 	cmake -B $BUILD_DIR_PICO2 -DPICO_BOARD=pico2
-	cmake -B $BUILD_DIR_CORE2350B -DPICO_PLATFORM=rp2350-arm-s -DPICO_FLASH_SIZE_BYTES=16777216
+	cmake -B $BUILD_DIR_CORE2350B -DPICO_BOARD=waveshare_core2350b
 
         make -C $BUILD_DIR_PICO
 	make -C $BUILD_DIR_PICO2
