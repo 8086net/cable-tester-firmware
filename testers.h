@@ -444,17 +444,18 @@ const struct Tester testers [N_TESTERS] = {
                 ),
         },
         { // 8P8C Ethernet/RJ45/RJ11
-                0x48, // GP0=High/GP1=Low/GP2=None
+                0x20, // GP0=None/GP1=None/GP2=Low
                 "8P8C",
                 MAKE_PINS(
-                        {17, "P1"},  // 10
-                        {18, "P2"},  // 9
-                        {19, "P3"}, // 8
-                        {20, "P4"},  // 7
-                        {11, "P5"},  // 6
-                        {12, "P6"}, // 5
-                        {13, "P7"},  // 4
-                        {14, "P8"},   // 3
+                        {17, "P1"},
+                        {18, "P2"},
+                        {19, "P3"},
+                        {20, "P4"},
+                        {11, "P5"},
+                        {12, "P6"},
+                        {13, "P7"},
+                        {14, "P8"},
+			{15, "SHELL"},
                 ),
                 MAKE_PULLS_NONE(),
 		MAKE_PULLNAMES_NONE(),
