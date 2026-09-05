@@ -66,7 +66,7 @@ struct Tester {
 };
 
 // Number of testers defined
-#define N_TESTERS 9
+#define N_TESTERS 10
 
 const struct Tester testers [N_TESTERS] = {
 	{ // All GPIO (No pulls)
@@ -463,6 +463,28 @@ const struct Tester testers [N_TESTERS] = {
                         [0] = {"", "8P8C", 15, 16},
                 ),
         },
+	{ // DE-9 (aka DB9)
+		0xA0, // GP0=0/GP1=None/GP2=0
+		"DE-9",
+		MAKE_PINS(
+			{17, "P1"},
+			{19, "P2"},
+			{10, "P3"},
+			{12, "P4"},
+			{14, "P5"},
+			{18, "P6"},
+			{20, "P7"},
+			{11, "P8"},
+			{13, "P9"},
+			{15, "SHELL"},
+		),
+		MAKE_PULLS_NONE(),
+		MAKE_PULLNAMES_NONE(),
+		NULL, NULL, // VBUS/GND pull names
+		MAKE_INTERFACES(
+			[0] = {"", "DE-9", 15, 16},
+		),
+	},
 };
 
 #endif
