@@ -282,7 +282,7 @@ static void cli(void) {
 			} else if(strncmp("LREAD:", cli_buffer, 6) == 0) { // LREAD:<NAME>
 				uint8_t gpio = getgpiobyname((char*)cli_buffer + 6);
 				if(gpio != ERR_PIN_NOT_FOUND) {
-					resetpins(PULL_UP); // reste all pins to pull up
+					resetpins(PULL_UP); // reset all pins to pull up
 					gpio_set_dir(gpio, 1); // set specific pin to output
 					gpio_set_drive_strength(gpio, GPIO_DRIVE_STRENGTH_12MA);
 					gpio_put(gpio, 0); // set specific pin low
@@ -689,6 +689,12 @@ int main(void) {
 	if(tester_found) {
 		// Set name to what's given in the config
 		snprintf(usb_product, 32, "Tester:%s", active_tester->name );
+
+		// Disable default pull-down on interface detection pins
+		for(uint8_t i = 0; i < active_tester->n_interfaces; i++) {
+			gpio_disable_pulls(active_tester->interfaces[i].detect0);
+			gpio_disable_pulls(active_tester->interfaces[i].detect1);
+		}
 	} else {
 		// GP0/1/2 set in an unknown way and we don't have a fallback config to use
 		snprintf(usb_product, 32, "Tester:ERROR Missing Fallback");
