@@ -1,0 +1,41 @@
+# Cable Tester Identification Ties
+
+N = No connection
+L = Tied to GND
+H = Tied to 3v3
+
+GP0 GP1 GP2 ID   Name
+N   N   N   0x00 Pico GPIO >=GP0 (default no ties found)
+L   N   N   0x80 USB-C (16)
+H   N   N   0x08 USB2 MicroB + USB3 Type-A Sockets
+N   L   N   0x40 FFC 22-PIN 0.5mm pitch
+L   L   N   0xC0 FFC 15-PIN 1mm pitch
+H   L   N   0x48 USB3 Type-B / uUSB3
+N   H   N   0x04 0.1" Pin Header Pins (Waveshare Core2350B - 43 pins)
+L   H   N   0x84 Barrel Jack / 2xSH 3-pin / 2xSH 4-pin / 6-pin Header
+H   H   N   0x0C I2C 24C32 - GP0=SDA(3.3k pullup), GP1=SCL(3.3k pullup)
+
+N   N   L   0x20 P8C8 (Ethernet/RJ45/RJ11)
+L   N   L   0xA0 DE-9 (aka DB9)
+H   N   L   
+N   L   L   
+L   L   L   
+H   L   L   
+N   H   L   
+L   H   L   
+H   H   L   <Reserve I2C?>
+
+N   N   H   
+L   N   H   
+H   N   H   
+N   L   H   
+L   L   H   
+H   L   H   
+N   H   H   
+L   H   H   
+H   H   H   <Reserve I2C?>
+
+If unknown pulls are found present "Pico GPIO >GP2" is used.
+
+
+
