@@ -663,7 +663,7 @@ int main(void) {
 			}
 		}
 	} else { // Check for a valid tester in testers.h based on pulls
-		for(uint8_t i=0;i<N_TESTERS;i++) {
+		for(uint8_t i=0;i<(N_TESTERS-N_TESTERS_DISABLED);i++) {
                 	if(testers[i].config_id==config) {
 				tester_found = true;
 				tid = i;

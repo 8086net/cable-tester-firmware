@@ -65,10 +65,17 @@ struct Tester {
 	const struct Interface *interfaces;
 };
 
-// Number of testers defined
-#define N_TESTERS 10
+// Total number of testers defined including RP2350B only
+#define N_TESTERS 11
 
-const struct Tester testers [N_TESTERS] = {
+// Number of disabled board specific testers 
+#if defined(WAVESHARE_CORE2350B)
+#define N_TESTERS_DISABLED 0 // All testers are available
+#else
+#define N_TESTERS_DISABLED 1 // Number of RP2350B only testeres
+#endif
+
+const struct Tester testers [N_TESTERS - N_TESTERS_DISABLED] = {
 	{ // All GPIO (No pulls)
 		// DO NOT REMOVE 0x00 - used for fallback config
 		0x00, // GP0=None,GP1=None,GP2=None
@@ -486,6 +493,64 @@ const struct Tester testers [N_TESTERS] = {
 			[0] = {"", "DE-9", 15, 16},
 		),
 	},
+#if defined(WAVESHARE_CORE2350B) // Testers on RP2350B
+	{ // Pin Headers (Waveshare Core2350B)
+		0x04, // GP0=N/GP1=H/GP2=N
+		"Pin Headers (43)",
+                MAKE_PINS(
+			// Bank 0
+                        { 3, "P0" },
+                        { 4, "P1" },
+                        { 5, "P2" },
+                        { 6, "P3" },
+                        { 7, "P4" },
+                        { 8, "P5" },
+                        { 9, "P6" },
+                        {10, "P7"},
+                        {11, "P8"},
+                        {12, "P9"},
+                        {13, "P10"},
+                        {14, "P11"},
+                        {15, "P12"},
+                        {16, "P13"},
+                        {17, "P14"},
+                        {18, "P15"},
+                        {19, "P16"},
+                        {20, "P17"},
+                        {21, "P18"},
+                        {22, "P19"},
+			// Bank 1
+                        {23, "P20"},
+                        {24, "P21"},
+                        {25, "P22"},
+			// Bank 2
+                        {26, "P23"},
+                        {27, "P24"},
+                        {28, "P25"},
+                        {29, "P26"},
+                        {30, "P27"},
+                        {31, "P28"},
+                        {32, "P29"},
+                        {33, "P30"},
+                        {34, "P31"},
+                        {35, "P32"},
+                        {36, "P33"},
+                        {37, "P34"},
+                        {38, "P35"},
+                        {40, "P36"},
+                        {41, "P37"},
+                        {42, "P38"},
+                        {43, "P39"},
+                        {44, "P40"},
+                        {45, "P41"},
+                        {26, "P42"},
+		),
+                MAKE_PULLS_NONE(),
+                MAKE_PULLNAMES_NONE(),
+                NULL, NULL, // VBUS/GND pull names
+		MAKE_INTERFACES_NONE(),
+	},
+#endif // End RP2350B Testers
 };
 
 #endif
