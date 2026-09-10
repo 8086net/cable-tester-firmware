@@ -543,7 +543,7 @@ const struct Tester testers [N_TESTERS - N_TESTERS_DISABLED] = {
                         {43, "P39"},
                         {44, "P40"},
                         {45, "P41"},
-                        {26, "P42"},
+                        {46, "P42"},
 		),
                 MAKE_PULLS_NONE(),
                 MAKE_PULLNAMES_NONE(),
