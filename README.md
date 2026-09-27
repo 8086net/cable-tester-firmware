@@ -49,7 +49,7 @@ Communication with the cable tester firmware is via a USB CDC serial port. You c
 
 ### Example command usage
 
-When an error occurs the text "ERROR:" followed by an error message is sent. After all commands it also sends "DONE:" followed by the command.
+When an error occurs the text "ERROR:" followed by an error message is sent. After all commands it also sends "DONE:" followed by the command (except REBOOT and BOOTLOADER which reset the board).
 
 **Example error response**
 
@@ -240,3 +240,14 @@ UPTIME
 
 Returns the tester's uptime in microseconds.
 
+```
+REBOOT
+```
+
+Resets the RP2xxx (does not return DONE).
+
+```
+BOOTLOADER
+```
+
+Resets the RP2xxx and loads the UF2 bootloader for firmware updates (does not return DONE).
