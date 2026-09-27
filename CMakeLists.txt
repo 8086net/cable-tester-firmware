@@ -59,6 +59,7 @@ target_link_libraries(cable_tester PUBLIC
 	tinyusb_device
 	tinyusb_board
 	pico_unique_id
+	hardware_watchdog
 	hardware_gpio
 	hardware_adc
 	hardware_i2c

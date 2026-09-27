@@ -37,6 +37,7 @@
 #include "pico/unique_id.h"
 #include "pico/stdlib.h"
 #include "pico/version.h"
+#include "hardware/watchdog.h"
 #include "hardware/adc.h"
 #include "hardware/uart.h"
 #include "hardware/i2c.h"
@@ -447,6 +448,10 @@ static void cli(void) {
 			} else if(strcmp("UPTIME", cli_buffer)==0) { // UPTIME
 				snprintf(buf, sizeof(buf), "%llu", time_us_64());
 				usbprint(buf);
+			} else if(strcmp("REBOOT", cli_buffer)==0) { // RESET
+				watchdog_reboot(0, 0, 0);
+			} else if(strcmp("BOOTLOADER", cli_buffer)==0) { // RESET to UF2 bootloader
+				reset_usb_boot(0u, 0u);
 			} else { // Unknown command
 				snprintf(buf, sizeof(buf), "ERROR:Unknown Command");
 				usbprint(buf);
